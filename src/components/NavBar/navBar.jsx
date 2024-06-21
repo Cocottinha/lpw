@@ -2,9 +2,33 @@
 import Link from "next/link"
 import Button from "../Button/button"
 import { UserAuth } from "@/context/AuthContext"
+import { useEffect, useState } from "react"
+import {addDoc, collection, getDocs, getFirestore} from "firebase/firestore"
+import { firebaseConfig } from "@/app/firebase"
+import { initializeApp } from "firebase/app"
+
+const app = initializeApp(firebaseConfig)
+const db = getFirestore(app)
 
 export const NavBar = () => {
   const { user, googleSignIn, logOut } = UserAuth();
+
+  const[name, setName] = useState("");
+  const[email, setEmail] = useState("")
+  const[admin, setAdmin] = useState("");
+
+  const[users, setUsers] = useState([])
+
+  const userCollectionRef = collection(db, 'users')
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const data = await getDocs(userCollectionRef)
+      setUsers((data.docs.map((doc) => ({...doc.data(), id: doc.id}))))     
+    }
+    getUsers();
+  },[])
+
   const handleSignIn = async () => {
     try {
       await googleSignIn()
