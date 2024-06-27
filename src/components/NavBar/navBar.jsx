@@ -1,7 +1,6 @@
 "use client"
 import Link from "next/link"
 import Button from "../Button/button"
-import { UserAuth } from "@/context/AuthContext"
 import { useEffect, useState } from "react"
 import {addDoc, collection, getDocs, getFirestore} from "firebase/firestore"
 import { firebaseConfig } from "@/app/firebase"
@@ -29,20 +28,6 @@ export const NavBar = () => {
     getUsers();
   },[])
 
-  const handleSignIn = async () => {
-    try {
-      await googleSignIn()
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  const handleSignOut = async () => {
-    try {
-      await logOut()
-    } catch (error) {
-      console.log(error)
-    }
-  }
   return (
     <div>
       <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
