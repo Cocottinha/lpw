@@ -1,0 +1,42 @@
+.containerG{
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-left: 5%;
+}
+.cont{
+    width: 30%;
+}
+.button{
+    background-color: rgb(10, 43, 255);
+    color: white;
+    width: 120px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border:none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.button:hover{
+    background-color: gray;
+}
+.combox{
+    text-align: right;
+    padding-right: 5%;
+    padding-bottom: 2%;
+}
+@media (max-width: 1280px){
+    .cont{
+        width: 45%;
+    }
+}
+@media (max-width: 768px){
+    .cont{
+        width: 100%;
+    }
+}
