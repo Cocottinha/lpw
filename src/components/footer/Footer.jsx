@@ -3,7 +3,7 @@ const Footer = () => {
     return(
         <div className={styles.container}>
             <div className={styles.logo}>Horas Complementares</div>    
-            <div className={styles.text}>FAETERJ. By Lucas Cotta.</div>
+            <div className={styles.text}>FAETERJ. By Lucas Cotta & Matheus Batista.</div>
         </div>
     )
 }
